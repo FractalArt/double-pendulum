@@ -15,8 +15,8 @@ The help message can be shown as follows:
 
 ```sh
 $ python3 double_pendulum.py -h
-usage: double_pendulum.py [-h] [--m1 M1] [--m2 M2] [--r1 R1] [--r2 R2] [--v1 V1] [--v2 V2] [-g GRAVITY] [--i1 I1] [--i2 I2] [--dt DT] [--steps STEPS] [--pause PAUSE] [-d] [--dpi DPI]
-                          [--marker-size MARKER_SIZE] [--mod MOD] [-p] [--output OUTPUT]
+usage: double_pendulum.py [-h] [--m1 M1] [--m2 M2] [--r1 R1] [--r2 R2] [--v1 V1] [--v2 V2] [--i1 I1] [--i2 I2] [--dt DT] [-g GRAVITY] [--steps STEPS] [--pause PAUSE] [-d] [--dpi DPI]
+                          [--marker-size MARKER_SIZE] [--mod MOD] [-p SHOW_PAST] [--output OUTPUT]
 
 Double Pendulum Simulation
 
@@ -36,7 +36,8 @@ trajectory of the bottom mass but also shows the animated
 simulation while the second adds a trail of all past positions
 of the bottom mass to the simulation.
 
-An image of the 
+An image of the positions visited by the bottom mass can be 
+stored using the `--output` flag.
 
 options:
   -h, --help            show this help message and exit
@@ -46,11 +47,11 @@ options:
   --r2 R2               The length of the second pendulum rod [m]
   --v1 V1               The first initial angular velocity [rad / s]
   --v2 V2               The second initial angular velocity [rad / s]
-  -g GRAVITY, --gravity GRAVITY
-                        The value for the gravitational constant [N * m^2 / kg^2]
   --i1 I1               The initial value for the first angle
   --i2 I2               The initial value for the first angle
   --dt DT               The simulation time stamp in seconds
+  -g GRAVITY, --gravity GRAVITY
+                        The value for the gravitational constant [N * m^2 / kg^2]
   --steps STEPS, -s STEPS
                         The number of simulation steps
   --pause PAUSE         The pause between different renderings
@@ -59,7 +60,8 @@ options:
   --marker-size MARKER_SIZE
                         The marker-size.
   --mod MOD, -m MOD     When the simulation is shown, only display every `mod` step
-  -p, --show-past       Show the past positions of the bottom pendulum
+  -p SHOW_PAST, --show-past SHOW_PAST
+                        Specify how many past positions should be shown in the tail
   --output OUTPUT, -o OUTPUT
                         The output path of the plot
 ```
