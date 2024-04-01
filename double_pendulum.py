@@ -17,7 +17,8 @@ trajectory of the bottom mass but also shows the animated
 simulation while the second adds a trail of all past positions
 of the bottom mass to the simulation.
 
-An image of the 
+An image of the positions visited by the bottom mass can be 
+stored using the `--output` flag.
 """
 import argparse as ap
 import matplotlib.pyplot as plt
