@@ -16,7 +16,7 @@ The help message can be shown as follows:
 ```sh
 $ python3 double_pendulum.py -h
 usage: double_pendulum.py [-h] [--m1 M1] [--m2 M2] [--r1 R1] [--r2 R2] [--v1 V1] [--v2 V2] [--i1 I1] [--i2 I2] [--dt DT] [-g GRAVITY] [--steps STEPS] [--pause PAUSE] [-d] [--dpi DPI]
-                          [--marker-size MARKER_SIZE] [--mod MOD] [-p SHOW_PAST] [--output OUTPUT]
+                          [--marker-size MARKER_SIZE] [--mod MOD] [-p SHOW_PAST] [--output OUTPUT] [--ot1 OT1] [--ot2 OT2] [--delta-t2 DELTA_T2]
 
 Double Pendulum Simulation
 
@@ -64,13 +64,16 @@ options:
                         Specify how many past positions should be shown in the tail
   --output OUTPUT, -o OUTPUT
                         The output path of the plot
+  --ot1 OT1             Output a plot of the theta1 angle over time.
+  --ot2 OT2             Output a plot of the theta2 angle over time.
+  --delta-t2 DELTA_T2   Optional small offset of theta_2. Show how trajectories are sensible to initial conditions.
 ```
 
 Thus, a command to display the simulated pendulum with default physical parameters
 and show a trail of the past 5000 positions of the bottom pendulum as well is given by:
 
 ```sh
-$ python3 double_pendulum.py --display --show-past 5000 -o double_pendulum.png
+python3 double_pendulum.py --display --show-past 5000 -o double_pendulum.png
 ```
 
 The `-o` flag provides the name of the output file and stores the positions of the bottom 
@@ -80,5 +83,14 @@ If only the simulation shall be shown without producing an output image one can 
 command where only every hundredth step (`-m 100`) is shown to improve the rendering speed:
 
 ```sh
-$ python3 double_pendulum.py -d -p 5000 -s 20000 -m 100
+python3 double_pendulum.py -d -p 5000 -s 20000 -m 100
+```
+
+To show the sensitive dependence of the system on the initial conditions, one can specify a tiny offset
+in the initial conditions for the angle `theta_2` as a command-line parameter. This will include in the
+simulation a second double-pendulum with the same initial conditions as that of the first one, except the
+angle `theta_2` being offset by specified (small) value. The corresponding command is:
+
+```sh
+python3 double_pendulum.py -d -p 5000 -s 20000 -m 100 --delta-t2 0.0001 -s 50000
 ```
