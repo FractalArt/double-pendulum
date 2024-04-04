@@ -94,3 +94,27 @@ angle `theta_2` being offset by specified (small) value. The corresponding comma
 ```sh
 python3 double_pendulum.py -d -p 5000 -s 20000 -m 100 --delta-t2 0.0001 -s 50000
 ```
+
+---
+
+## Analytics
+
+We consider the system of a double pendulum. It consists of a first mass $m_1$ attached to a rigid rod
+of length $r_1$. Attached to the first mass is a second pendulum with a rigid rod of length $r_2$ and
+a mass $m_2$. We consider both rods to be massless and we ignore friction in the following derivation.
+
+The select the coordinate system in such a way that the origin corresponds to the suspension point of the
+first pendulum, i.e. the top end of the rod of length $r_1$. Furthermore, we define the angles $\theta_1$
+and $\theta_2$ to be the deviations from the vertical drawn through the suspension point of the respective
+pendulum. For the first pendulum, the vertical is drawn through the origin. For the second pendulum, the
+suspension is the first mass $m_1$, so the angle $\theta_2$ is measured with respect to the vertical passing
+through $m_1$. This way, the coordinates of the two masses $m_1\,(x_1, y_1)$ and $m_2\,(x_2, y_2)$ can be
+expressed as:
+
+```math
+\begin{align}
+    x_1 &= r_1\,\sin\,\theta_1
+    y_1 &= -r_1\,\cos\,\theta_1
+\end{align}
+
+```
