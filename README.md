@@ -96,7 +96,7 @@ python3 double_pendulum.py -d -p 5000 -s 20000 -m 100 --delta-t2 0.0001 -s 50000
 
 ---
 
-## Analytics {#analytics}
+## Analytics
 
 We consider the system of a double pendulum. It consists of a first mass $m_1$ attached to a rigid rod
 of length $r_1$. Attached to the first mass is a second pendulum with a rigid rod of length $r_2$ and
