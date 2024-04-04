@@ -201,7 +201,7 @@ with
 For the first angle $\theta_1$, the Euler-Lagrange equation reads
 
 ```math
-
+\begin{align}
   0 &= \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \omega_1} - \frac{\partial L}{\partial \theta_1} \\
     $= \frac{\mathrm{d}}{\mathrm{d}t} 
     \left[
@@ -214,4 +214,5 @@ For the first angle $\theta_1$, the Euler-Lagrange equation reads
     & \qquad + m_2 \, r_1 \, r_2 \, \omega_1 \, \omega_2 \, \sin(\theta_1 - \theta_2) + (m_1 + m_2) \, g \, r_1 \, \sin\theta_1 \\
 
     &= \textcolor{blue}{x}
+\end{align}
 ```
