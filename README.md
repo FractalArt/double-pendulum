@@ -6,7 +6,7 @@ This repository contains the Python code for a double-pendulum simulation.
 
 ## Implementation
 
-The second-order differential equations for the two angles are derived below in the [Analytics]{#analytics} section. They are solved using fourth-order Runge-Kutta.
+The second-order differential equations for the two angles are derived below in the [Analytics](#analytics) section. They are solved using fourth-order Runge-Kutta.
 
 ## Usage
 
