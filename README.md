@@ -173,8 +173,8 @@ Here we have used the abbreviations $c_i = \cos\theta_i$ and $s_i = \sin\theta_i
 In both cases, the contribution to the potential energy $V$ is only given by the gravitational potential and reads
 
 ```math
-V_1 &= m_1 \, g \, y_1 &= - m_1 \, g \, r_1 \, \cos\theta_1 \\
-V_2 &= m_2 \, g \, y_2 &= - m_2 \, g \, r_1 \, \cos\theta_1 - m_2 \, g \, r_2 \, \cos\theta_2
+V_1 = m_1 \, g \, y_1 &= - m_1 \, g \, r_1 \, \cos\theta_1 \\
+V_2 = m_2 \, g \, y_2 &= - m_2 \, g \, r_1 \, \cos\theta_1 - m_2 \, g \, r_2 \, \cos\theta_2
 ```
 
 To derive the differential equations governing the dynamics of the two angles we will use the *Euler-Lagrange* equations:
