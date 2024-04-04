@@ -6,8 +6,7 @@ This repository contains the Python code for a double-pendulum simulation.
 
 ## Implementation
 
-The second-order differential equations for the two angles are taken from [myphysicslab.com](https://www.myphysicslab.com/pendulum/double-pendulum-en.html).
-They are solved using fourth-order Runge-Kutta.
+The second-order differential equations for the two angles are derived below in the [Analytics](#analytics) section. They are solved using fourth-order Runge-Kutta.
 
 ## Usage
 
@@ -94,3 +93,210 @@ angle `theta_2` being offset by specified (small) value. The corresponding comma
 ```sh
 python3 double_pendulum.py -d -p 5000 -s 20000 -m 100 --delta-t2 0.0001 -s 50000
 ```
+
+---
+
+## Analytics
+
+We consider the system of a double pendulum. It consists of a first mass $m_1$ attached to a rigid rod
+of length $r_1$. Attached to the first mass is a second pendulum with a rigid rod of length $r_2$ and
+a mass $m_2$. We consider both rods to be massless and we ignore friction in the following derivation.
+
+The select the coordinate system in such a way that the origin corresponds to the suspension point of the
+first pendulum, i.e. the top end of the rod of length $r_1$. Furthermore, we define the angles $\theta_1$
+and $\theta_2$ to be the deviations from the vertical drawn through the suspension point of the respective
+pendulum. For the first pendulum, the vertical is drawn through the origin. For the second pendulum, the
+suspension is the first mass $m_1$, so the angle $\theta_2$ is measured with respect to the vertical passing
+through $m_1$. This way, the coordinates of the two masses $m_1\,(x_1, y_1)$ and $m_2\,(x_2, y_2)$ can be
+expressed as:
+
+```math
+\begin{align}
+    x_1 &= r_1\,\sin\theta_1 \\
+    y_1 &= -r_1\,\cos\theta_1 \\
+    & \\
+    x_2 &= r_1\,\sin\theta_1 + r_2\,\sin\theta_2 \\
+    y_2 &= -r_1\,\cos\theta_1 - r_2\,\cos\theta_2
+\end{align}
+```
+
+The velocities can be derived by computing the derivatives with respect to time:
+
+```math
+\begin{align}
+    \dot{x}_1 &= r_1 \, \omega_1 \, \cos\theta_1 \\
+    \dot{y}_1 &= r_1 \, \omega_1 \, \sin\theta_1 \\
+    & \\
+    \dot{x}_2 &= r_1 \, \omega_1 \, \cos\theta_1 + r_2 \, \omega_2 \, \cos\theta_2 \\
+    \dot{y}_2 &= r_1 \, \omega_1 \, \sin\theta_1 + r_2 \, \omega_2 \, \sin\theta_2
+\end{align}
+```
+
+Here, we have introduced the angular velocities $\omega_1$ and $\omega_2$ defined as:
+
+```math
+\begin{align}
+    \dot{\theta}_1 &= \omega_1 \\
+    \dot{\theta}_2 &= \omega_2
+\end{align}
+```
+
+The kinetic energy $T$ of the first mass is:
+
+```math
+\begin{align}
+    T_1 &= \frac{1}{2}\,m_1 \, \left( \dot{x}_1^2 + \dot{y}_1^2 \right) \\
+        &= \frac{1}{2}\,m_1 \, r_1^2 \, \omega_1^2 \, (\cos^2\theta_1 + \sin^2\theta_1) \\
+        &= \frac{1}{2}\,m_1 \, r_1^2 \, \omega_1^2
+\end{align}
+```
+
+while that of the second one reads
+
+```math
+\begin{align}
+    T_2 &= \frac{1}{2} \, m_2 \, \left(\dot{x}_2^2 + \dot{y}_2^2\right) \\
+        &= \frac{1}{2} \, m_2 \, \left[ \left( r_1\, \omega_1 \, c_1 + r_2 \, \omega_2 \, c_2 \right)^2 + \left( r_1 \, \omega_1 \, s_1 + r_2 \, \omega_2 \, s_2 \right)^2 \right] \\
+        &= \frac{1}{2} \, m_2 \, \left(r_1^2\,\omega_1^2\,c_1^2 + r_2^2\,\omega_2^2\,c_2^2 + 2 \,r_1 \,r_2 \,\omega_1 \,\omega_2 \,c_1\,c_2
+                                     + r_1^2\,\omega_1^2\,s_1^2 + r_2^2\,\omega_2^2\,s_2^2 + 2 \,r_1 r\,_2 \,\omega_1 \,\omega_2 \,s_1\,s_2 \right) \\
+        &= \frac{1}{2} \, m_2 \, \left(r_1^2\,\omega_1^2 + r_2^2\,\omega_2^2 + 2\, r_1 \, r_2 \, \omega_1 \, \omega_2 \, \cos(\theta_1 - \theta_2) \right)
+\end{align}
+```
+
+Here we have used the abbreviations $c_i = \cos\theta_i$ and $s_i = \sin\theta_i$ to shorten the expressions and made use of the identity
+
+```math
+    \cos(\alpha - \beta) = \cos \alpha \, \cos \beta + \sin \alpha \, \sin \beta
+```
+
+In both cases, the contribution to the potential energy $V$ is only given by the gravitational potential and reads
+
+```math
+\begin{align}
+    V_1 &= m_1 \, g \, y_1 = - m_1 \, g \, r_1 \, \cos\theta_1 \\
+    V_2 &= m_2 \, g \, y_2 = - m_2 \, g \, r_1 \, \cos\theta_1 - m_2 \, g \, r_2 \, \cos\theta_2
+\end{align}
+```
+
+To make the equations below easier to read, we introduce the following notation:
+
+```math
+\begin{align}
+    m_{12} &= m_1 + m_2 \\
+    \theta_{12} &= \theta_1 - \theta_2
+\end{align}
+```
+
+To derive the differential equations governing the dynamics of the two angles we will use the *Euler-Lagrange* equations:
+
+```math
+  \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \omega_i} - \frac{\partial L}{\partial \theta_i} = 0
+```
+
+with
+
+```math
+\begin{align}
+    L &= T - V \\
+      &= (T_1 + T_2) - (V_1 + V_2) \\
+      &= \frac{1}{2} \, m_{12} \, r_1^2 \, \omega_1^2
+       + \frac{1}{2} \, m_2 \, r_2^2 \, \omega_2^2
+       + m_2 \, r_1 \, r_2 \, \omega_1 \, \omega_2 \, \cos\theta_{12} 
+       + m_{12} \, g \, r_1 \, \cos\theta_1 + m_2 \, g \, r_2 \, \cos\theta_2
+\end{align}
+```
+
+
+For the first angle $\theta_1$, the Euler-Lagrange equation reads
+
+```math
+\begin{align}
+  0 &= \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \omega_1} - \frac{\partial L}{\partial \theta_1} \\
+    &= \frac{\mathrm{d}}{\mathrm{d}t} 
+    \left[
+        m_{12} \, r_1^2 \, \omega_1 + m_2 \, r_1 \, r_2 \, \omega_2 \, \cos\theta_{12}
+    \right] 
+    + m_2 \, r_1 \, r_2 \, \omega_1 \, \omega_2 \, \sin\theta_{12} + m_{12} \, g \, r_1 \, \sin\theta_1 \\
+
+    &= m_{12} \, r_1^2 \dot{\omega}_1 + m_2 \, r_1 \, r_2 \, \dot{\omega}_2 \, \cos\theta_{12}
+        - m_2 \, r_1 \, r_2 \, \omega_2 \, \sin\theta_{12} \, (\textcolor{green}{\omega_1} - \omega_2) 
+     + \textcolor{green}{m_2 \, r_1 \, r_2 \, \omega_1 \, \omega_2 \, \sin\theta_{12}} + m_{12} \, g \, r_1 \, \sin\theta_1 \\
+
+    &= m_{12} \, r_1^2 \, \dot{\omega}_1 + m_2 \, r_1 \, r_2 \, \dot{\omega}_2 \, \cos\theta_{12} + m_2\,r_1\,r_2\,\omega_2^2\sin\theta_{12}
+       + m_{12} \, g \, r_1 \, \sin\theta_1
+\end{align}
+```
+
+In the previous set of equations, the terms in green cancel out.
+For the second angle $\theta_2$, the Euler-Lagrange equation reads:
+
+```math
+\begin{align}
+  0 &= \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \omega_2} - \frac{\partial L}{\partial \theta_2} \\
+    &= \frac{\mathrm{d}}{\mathrm{d}t} 
+    \left[
+        m_2 \, r_2^2 \, \omega_2 + m_2 \, r_1 \, r_2 \, \omega_1 \, \cos\theta_{12}
+    \right] 
+    - m_2 \, r_1 \, r_2 \, \omega_1 \, \omega_2 \, \sin\theta_{12} + m_2 \, g \, r_2 \, \sin\theta_2 \\
+
+    &= m_2 \, r_2^2 \, \dot{\omega}_2 + m_2 \, r_1 \, r_2 \, \dot{\omega}_1 \, \cos\theta_{12} - m_2 \, r_1 \, r_2 \, \omega_1 \, \sin\theta_{12}
+       (\omega_1 - \textcolor{green}{\omega_2}) 
+     - \textcolor{green}{m_2 \, r_1 \, r_2 \, \omega_1 \, \omega_2 \, \sin\theta_{12}} + m_2 \, g \, r_2 \, \sin\theta_2 \\
+
+    &= m_2 \, r_2^2 \, \dot{\omega_2} + m_2 \, r_1 \, r_2 \, \dot{\omega}_1 \, \cos\theta_{12} - m_2 \, r_1 \, r_2 \, \omega_1^2 \, \sin\theta_{12}
+        + m_2 \, g \, r_2 \, \sin\theta_2
+
+\end{align}
+```
+
+We thus remain with two differential equations describing the dynamics of the double pendulum:
+
+```math
+\boxed{
+\begin{align}
+    0 &= \dot{\omega}_1 + \frac{m_2}{m_{12}} \, \frac{r_2}{r_1} \, \dot{\omega}_2 \, \cos\theta_{12} + \frac{m_2}{m_{12}} \, \frac{r_2}{r_1}\,\omega_2^2\sin\theta_{12}
+       + \frac{g}{r_1} \, \sin\theta_1 \tag{1}\label{eq:1} \\
+
+    0 &= \dot{\omega_2} + \frac{r_1}{r_2} \, \dot{\omega}_1 \, \cos\theta_{12} - \frac{r_1}{r_2} \, \omega_1^2 \, \sin\theta_{12}
+        + \frac{g}{r_2} \, \sin\theta_2 \tag{2}\label{eq:2}
+\end{align}
+}
+```
+
+This is a system of __coupled__, __second-order__ __non-linear__ differential equations.
+
+The final step is transform this system of two second-order differential equations into a system of four first-order equations of the form:
+
+```math
+\begin{align}
+\dot{\theta}_1 &= \omega_1 \\
+\dot{\theta}_2 &= \omega_2 \\
+\dot{\omega}_1 &= f_1(\theta_1, \theta_2, \omega_1, \omega_2) \\
+\dot{\omega}_2 &= f_2(\theta_1, \theta_2, \omega_1, \omega_2)
+\end{align}
+```
+
+To do that, we combine equations $\eqref{eq:1}$ and $\eqref{eq:2}$ as follows:
+
+```math
+\begin{align}
+0 &= (1) - \frac{m_2}{m_{12}} \, \frac{r_2}{r_1} \, \cos\theta_{12} \, (2)  \\
+0 &= (2) - \frac{r_1}{r_2} \, \cos\theta_{12} \, (1)
+\end{align}
+```
+
+After some simple manipulations, this leads to:
+
+```math
+\boxed{
+\begin{align}
+    \dot{\omega}_1 &= \frac{-m_2 \, r_2 \, \omega_2^2 \, \sin\theta_{12} - g \, m_{12} \, \sin\theta_1 - \frac{1}{2} \, r_1 \, m_2 \, \omega_1^2 \,  \sin(2\,\theta_{12}) + g \, m_2 \, \cos\theta_{12} \, \sin\theta_2}{r_1 \, (m_{12} - m_2 \, \cos^2\theta_{12})}\\
+
+    \dot{\omega}_2 &= \frac{r_1 \, m_{12} \, \omega_1^2 \, \sin\theta_{12} - g \, m_{12} \, \sin\theta_2 + \frac{1}{2} \, m_2 \, r_2 \, \omega_2^2 \, \sin(2\,\theta_{12}) + g \, m_{12} \, \cos\theta_{12} \, \sin\theta_1}{r_2 \, (m_{12} - m_2 \, \cos^2\theta_{12})}
+\end{align}
+}
+```
+
+These differential equations do not seem to match those presented in [myphysicslab.com](https://www.myphysicslab.com/pendulum/double-pendulum-en.html), but
+we have checked numerically, that they produce the same results.
+
