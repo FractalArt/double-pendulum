@@ -217,3 +217,25 @@ For the first angle $\theta_1$, the Euler-Lagrange equation reads
        + (m_1 + m_2) \, g \, r_1 \, \sin\theta_1
 \end{align}
 ```
+
+In the previous set of equations, the terms in \textcolor{green}{green} cancel out.
+For the second angle $\theta_2$, the Euler-Lagrange equation reads:
+
+```math
+\begin{align}
+  0 &= \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \omega_2} - \frac{\partial L}{\partial \theta_2} \\
+    &= \frac{\mathrm{d}}{\mathrm{d}t} 
+    \left[
+        m_2 \, r_2^2 \, \omega_2 + m_2 \, r_1 \, r_2 \, \omega_2 \, \cos(\theta_1 - \theta_2) 
+    \right] \\
+    & \qquad - m_2 \, r_1 \, r_2 \, \omega_1 \, \omega_2 \, \sin(\theta_1 - \theta_2) + m_2 \, g \, r_2 \, \sin\theta_2 \\
+
+    &= m_2 \, r_2^2 \, \dot{\omega}_2 + m_2 \, r_1 \, r_2 \, \dot{\omega}_1 \, \cos(\theta_1 - \theta_2) - m_2 \, r_1 \, r_2 \, \omega_1 \, \sin(\theta_1 - \theta_2)
+       (\omega_1 - \textcolor{green}{\theta_2}) \\
+    & \qquad - \textcolor{green}{m_2 \, \r_1 \, r_2 \, \omega_1 \, \omega_2 \, \sin(\theta_1 - \theta_2)} + m_2 \, g \, r_2 \, \sin\theta_2 \\
+
+    &= m_2 \, r_2^2 \, \dot{\omega_2} + m_2 \, r_1 \, r_2 \, \dot{\omega}_1 \, \cos(\theta_1 - \theta2) - m_2 \, r_1 \, r_2 \, \omega_1^2 \, \sin(\theta_1 - \theta_2) 
+        + m_2 \, g \, r_2 \, \sin\theta_2
+
+\end{align}
+```
