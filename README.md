@@ -174,8 +174,8 @@ In both cases, the contribution to the potential energy $V$ is only given by the
 
 ```math
 \begin{align}
-    V_1 &= m_1 \, g \, y_1 &= - m_1 \, g \, r_1 \, \cos\theta_1 \\
-    V_2 &= m_2 \, g \, y_2 &= - m_2 \, g \, r_1 \, \cos\theta_1 - m_2 \, g \, r_2 \, \cos\theta_2
+    V_1 &= m_1 \, g \, y_1 = - m_1 \, g \, r_1 \, \cos\theta_1 \\
+    V_2 &= m_2 \, g \, y_2 = - m_2 \, g \, r_1 \, \cos\theta_1 - m_2 \, g \, r_2 \, \cos\theta_2
 \end{align}
 ```
 
@@ -194,7 +194,7 @@ with
       &= (T_1 + T_2) - (V_1 + V_2) \\
       &= \frac{1}{2} \, (m_1 + m_2) \, r_1^2 \, \omega_1^2
        + \frac{1}{2} \, m_2 \, r_2^2 \, \omega_2^2
-       + m_2 \, r_1 \, r_2 \, \omega_1 \, \omega_2 \, \cos(\theta_1 - \theta_2)
-       + (m_1 + m_2) \, g \, r_1 \, \cos\theta_1 + m_2 \, g \, r_2 \, \cos\theta_2
+       + m_2 \, r_1 \, r_2 \, \omega_1 \, \omega_2 \, \cos(\theta_1 - \theta_2) \\
+       \qquad + (m_1 + m_2) \, g \, r_1 \, \cos\theta_1 + m_2 \, g \, r_2 \, \cos\theta_2
 \end{align}
 ```
