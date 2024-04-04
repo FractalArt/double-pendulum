@@ -179,6 +179,15 @@ In both cases, the contribution to the potential energy $V$ is only given by the
 \end{align}
 ```
 
+To make the equations below easier to read, we introduce the following notation:
+
+```math
+\begin{align}
+    m_{12} &= m_1 + m_2 \\
+    \theta_{12} &= \theta_1 - \theta_2
+\end{align}
+```
+
 To derive the differential equations governing the dynamics of the two angles we will use the *Euler-Lagrange* equations:
 
 ```math
@@ -191,21 +200,13 @@ with
 \begin{align}
     L &= T - V \\
       &= (T_1 + T_2) - (V_1 + V_2) \\
-      &= \frac{1}{2} \, (m_1 + m_2) \, r_1^2 \, \omega_1^2
+      &= \frac{1}{2} \, m_{12} \, r_1^2 \, \omega_1^2
        + \frac{1}{2} \, m_2 \, r_2^2 \, \omega_2^2
-       + m_2 \, r_1 \, r_2 \, \omega_1 \, \omega_2 \, \cos(\theta_1 - \theta_2) \\
-      & \qquad + (m_1 + m_2) \, g \, r_1 \, \cos\theta_1 + m_2 \, g \, r_2 \, \cos\theta_2
+       + m_2 \, r_1 \, r_2 \, \omega_1 \, \omega_2 \, \cos\theta_{12} 
+       + m_{12} \, g \, r_1 \, \cos\theta_1 + m_2 \, g \, r_2 \, \cos\theta_2
 \end{align}
 ```
 
-To make the equations below easier to read, we introduce the following notation:
-
-```math
-\begin{align}
-    m_{12} &= m_1 + m_2 \\
-    \theta_{12} &= \theta_1 - \theta_2
-\end{align}
-```
 
 For the first angle $\theta_1$, the Euler-Lagrange equation reads
 
