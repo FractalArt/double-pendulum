@@ -219,7 +219,7 @@ For the first angle $\theta_1$, the Euler-Lagrange equation reads
     + m_2 \, r_1 \, r_2 \, \omega_1 \, \omega_2 \, \sin\theta_{12} + m_{12} \, g \, r_1 \, \sin\theta_1 \\
 
     &= m_{12} \, r_1^2 \dot{\omega}_1 + m_2 \, r_1 \, r_2 \, \dot{\omega}_2 \, \cos\theta_{12}
-        - m_2 \, r_1 \, r_2 \, \omega_2 \, \sin\theta_{12} \, (\textcolor{green}{\omega_1} - \omega2) 
+        - m_2 \, r_1 \, r_2 \, \omega_2 \, \sin\theta_{12} \, (\textcolor{green}{\omega_1} - \omega_2) 
      + \textcolor{green}{m_2 \, r_1 \, r_2 \, \omega_1 \, \omega_2 \, \sin\theta_{12}} + m_{12} \, g \, r_1 \, \sin\theta_1 \\
 
     &= m_{12} \, r_1^2 \, \dot{\omega}_1 + m_2 \, r_1 \, r_2 \, \dot{\omega}_2 \, \cos\theta_{12} + m_2\,r_1\,r_2\,\omega_2^2\sin\theta_{12}
@@ -240,7 +240,7 @@ For the second angle $\theta_2$, the Euler-Lagrange equation reads:
     - m_2 \, r_1 \, r_2 \, \omega_1 \, \omega_2 \, \sin\theta_{12} + m_2 \, g \, r_2 \, \sin\theta_2 \\
 
     &= m_2 \, r_2^2 \, \dot{\omega}_2 + m_2 \, r_1 \, r_2 \, \dot{\omega}_1 \, \cos\theta_{12} - m_2 \, r_1 \, r_2 \, \omega_1 \, \sin\theta_{12}
-       (\omega_1 - \textcolor{green}{\theta_2}) 
+       (\omega_1 - \textcolor{green}{\omega_2}) 
      - \textcolor{green}{m_2 \, r_1 \, r_2 \, \omega_1 \, \omega_2 \, \sin\theta_{12}} + m_2 \, g \, r_2 \, \sin\theta_2 \\
 
     &= m_2 \, r_2^2 \, \dot{\omega_2} + m_2 \, r_1 \, r_2 \, \dot{\omega}_1 \, \cos\theta_{12} - m_2 \, r_1 \, r_2 \, \omega_1^2 \, \sin\theta_{12}
