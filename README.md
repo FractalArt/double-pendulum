@@ -255,10 +255,10 @@ We thus remain with two differential equations describing the dynamics of the do
 \boxed{
 \begin{align}
     0 &= \dot{\omega}_1 + \frac{m_2}{m_{12}} \, \frac{r_2}{r_1} \, \dot{\omega}_2 \, \cos\theta_{12} + \frac{m_2}{m_{12}} \, \frac{r_2}{r_1}\,\omega_2^2\sin\theta_{12}
-       + \frac{g}{r_1} \, \sin\theta_1 \tag{1}\label{deq1} \\
+       + \frac{g}{r_1} \, \sin\theta_1 \tag{1} \\
 
     0 &= \dot{\omega_2} + \frac{r_1}{r_2} \, \dot{\omega}_1 \, \cos\theta_{12} - \frac{r_1}{r_2} \, \omega_1^2 \, \sin\theta_{12}
-        + \frac{g}{r_2} \, \sin\theta_2 \tag{2}\label{deq2}
+        + \frac{g}{r_2} \, \sin\theta_2 \tag{2}
 \end{align}
 }
 ```
@@ -276,7 +276,7 @@ The final step is transform this system of two second-order differential equatio
 \end{align}
 ```
 
-To do that, we combine equations $\eqref{deq1}$ and $\eqref{deq2}$ as follows:
+To do that, we combine equations (1) and (2) as follows:
 
 ```math
 \begin{align}
