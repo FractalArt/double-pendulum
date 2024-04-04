@@ -213,6 +213,7 @@ For the first angle $\theta_1$, the Euler-Lagrange equation reads
         - m_2 \, r_1 \, r_2 \, \omega_2 \, \sin(\theta_1 - \theta_2) \, (\textcolor{green}{\omega_1} - \omega2) \\
     & \qquad + \textcolor{green}{m_2 \, r_1 \, r_2 \, \omega_1 \, \omega_2 \, \sin(\theta_1 - \theta_2)} + (m_1 + m_2) \, g \, r_1 \, \sin\theta_1 \\
 
-    &= \textcolor{blue}{x}
+    &= (m_1 + m_2) \, r_1^2 \, \dot{\omega}_1 + m_2 \, r_1 \, \r_2 \, \dot{\omega}_2 \, \cos(\theta_1 - \theta_2) + m_2\,r_1\,r_2\,\omega_2^2\sin(\theta_1 - \theta_2)
+       + (m_1 + m_2) \, g \, r_1 \, \sin\theta_1
 \end{align}
 ```
