@@ -263,8 +263,37 @@ We thus remain with two differential equations describing the dynamics of the do
 }
 ```
 
-This is a system of coupled, second-order non-linear differential equations.
+This is a system of __coupled__, __second-order__ __non-linear__ differential equations.
 
+The final step is transform this system of two second-order differential equations into a system of four first-order equations of the form:
+
+```math
+\dot{\theta}_1 &= \omega_1 \\
+\dot{\theta}_2 &= \omega_2 \\
+\dot{\omega}_1 &= f_1(\theta_1, \theta_2, \omega_1, \omega_2)
+\dot{\omega}_2 &= f_2(\theta_1, \theta_2, \omega_1, \omega_2)
+```
+
+To do that, we combine equations $\ref{eq:1}$ and $\ref{eq:2}$ as follows:
+
+```math
+\begin{align}
+0 &= (1) - \frac{m2}{m_{12}} \, \frac{r_2}{r_1} \, \cos\theta_{12} \, (2) 
+0 &= (2) - \frac{r_1}{r_2} \, \cos\theta_{12} \, (1)
+\end{align}
+```
+
+After some simple manipulations, this leads to:
+
+```
+\boxed{
+\begin{align}
+    \dot{omega}_1 &= \frac{-m_2 \, r_2 \, \omega_2^2 \, \sin\theta_{12} - g \, m_{12} \, \sin\theta_1 - r_1 \, m_2 \, \omega_1^2 \frac{1}{2} \sin(2\theta_{12}) + g \, m_2 \, \cos\theta_{12} \, \sin\theta_2}{r_1 \, (m_{12} - m_2 \, \cos^2\theta_{12})}
+\end{align}
+}
+```
+
+After some 
 
 
 
