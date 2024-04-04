@@ -271,23 +271,23 @@ The final step is transform this system of two second-order differential equatio
 \begin{align}
 \dot{\theta}_1 &= \omega_1 \\
 \dot{\theta}_2 &= \omega_2 \\
-\dot{\omega}_1 &= f_1(\theta_1, \theta_2, \omega_1, \omega_2)
+\dot{\omega}_1 &= f_1(\theta_1, \theta_2, \omega_1, \omega_2) \\
 \dot{\omega}_2 &= f_2(\theta_1, \theta_2, \omega_1, \omega_2)
 \end{align}
 ```
 
-To do that, we combine equations $\ref{eq:1}$ and $\ref{eq:2}$ as follows:
+To do that, we combine equations $\eqref{eq:1}$ and $\eqref{eq:2}$ as follows:
 
 ```math
 \begin{align}
-0 &= (1) - \frac{m2}{m_{12}} \, \frac{r_2}{r_1} \, \cos\theta_{12} \, (2)  \\
+0 &= (1) - \frac{m_2}{m_{12}} \, \frac{r_2}{r_1} \, \cos\theta_{12} \, (2)  \\
 0 &= (2) - \frac{r_1}{r_2} \, \cos\theta_{12} \, (1)
 \end{align}
 ```
 
 After some simple manipulations, this leads to:
 
-```
+```math
 \boxed{
 \begin{align}
     \dot{omega}_1 &= \frac{-m_2 \, r_2 \, \omega_2^2 \, \sin\theta_{12} - g \, m_{12} \, \sin\theta_1 - r_1 \, m_2 \, \omega_1^2 \frac{1}{2} \sin(2\theta_{12}) + g \, m_2 \, \cos\theta_{12} \, \sin\theta_2}{r_1 \, (m_{12} - m_2 \, \cos^2\theta_{12})}
