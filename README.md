@@ -119,5 +119,27 @@ expressed as:
     x_2 &= r_1\,\sin\theta_1 + r_2\,\sin\theta_2 \\
     y_2 &= -r_1\,\cos\theta_1 - r_2\,\cos\theta_2
 \end{align}
-
 ```
+
+The velocities can be derived by computing the derivatives with respect to time:
+
+```math
+\begin{align}
+    \dot{x}_1 &= r_1 \, \omega_1 \, \cos\theta_1 \\
+    \dot{y}_1 &= r_1 \, \omega_1 \, \sin\theta_1 \\
+    & \\
+    \dot{x}_2 &= r_1 \, \omega_1 \, \cos\theta_1 + r_2 \, \omega_2 \, \cos\theta_2 \\
+    \dot{y}_2 &= r_1 \, \omega_1 \, \sin\theta_1 + r_2 \, \omega_2 \, \sin\theta_2
+\end{align}
+```
+
+Here, we have introduced the angular velocities $\omega_1$ and $\omega_2$ defined as:
+
+```math
+\begin{align}
+    \dot{\theta}_1 &= \omega_1 \\
+    \dot{\theta}_2 &= \omega_2
+\end{align}
+```
+
+The kinetic energy $T$ of the first and second masses are given by:
