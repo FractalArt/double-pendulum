@@ -248,3 +248,18 @@ For the second angle $\theta_2$, the Euler-Lagrange equation reads:
 
 \end{align}
 ```
+
+We thus remain with two differential equations describing the dynamics of the double pendulum:
+
+```math
+\boxed{
+\begin{align}
+    0 &= m_{12} \, r_1^2 \, \dot{\omega}_1 + m_2 \, r_1 \, r_2 \, \dot{\omega}_2 \, \cos\theta_{12} + m_2\,r_1\,r_2\,\omega_2^2\sin\theta_{12}
+       + m_{12} \, g \, r_1 \, \sin\theta_1 \label{eq:1}
+    0 &= m_2 \, r_2^2 \, \dot{\omega_2} + m_2 \, r_1 \, r_2 \, \dot{\omega}_1 \, \cos\theta_{12} - m_2 \, r_1 \, r_2 \, \omega_1^2 \, \sin\theta_{12}
+        + m_2 \, g \, r_2 \, \sin\theta_2 \label{eq:2}
+\end{align}
+}
+```
+
+This is a system of coupled, second-order non-linear differential equations.
