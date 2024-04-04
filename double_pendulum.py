@@ -99,14 +99,14 @@ class FPrime:
         g = self._g
 
         dt = w[0] - w[1]
-        den = 2 * m1 + m2 * (1 - np.cos(2*dt))
+        den = m1 + m2 - m2 * np.cos(dt)**2
         m12 = m1 + m2
 
         return np.array([
                 w[2],
                 w[3],
-                (-g*(2*m1 + m2)*np.sin(w[0]) - m2 * g * np.sin(w[0] - 2*w[1]) - 2 * np.sin(dt) * m2 * (w[3]**2 * r2 + w[2]**2 *r1 * np.cos(dt))) / (r1 * den),
-                (2*np.sin(dt)* (w[2]**2 * r1 * m12 + g * m12 * np.cos(w[0]) + w[3]**2 * r2 * m2 * np.cos(dt) )) / (r2 * den),
+                (-m2 * r2 * w[3]**2 * np.sin(dt) - g * m12 * np.sin(w[0]) - r1 * m2 * w[2]**2 / 2 * np.sin(2*dt) + g * m2 * np.sin(w[1]) * np.cos(dt)) / (r1 * den),
+                (r1 * m12 * w[2]**2 * np.sin(dt) - g * m12 * np.sin(w[1]) + r2 * m2 * w[3]**2 / 2 * np.sin(2*dt) + g * m12 * np.sin(w[0]) * np.cos(dt)) / (r2 * den),
                 ])
 
 
@@ -225,7 +225,6 @@ if __name__ == '__main__':
         plt.clf()
         current = rk()
         t1, t2 = current[0], current[1]
-        # print(f'Step {step}: {t1}, {t2}')
 
         x1, y1, x2, y2 = angles_to_cartesian(t1, t2, args.r1, args.r2) 
         if args.delta_t2:
@@ -261,7 +260,7 @@ if __name__ == '__main__':
                 plt.scatter(xs[-back:], ys[-back:], c=ts[-back:], cmap=cmap, marker='o', s=args.marker_size)
             plt.draw()
 
-            plt.pause(args.pause)  # Option
+            plt.pause(args.pause)
 
         time += args.dt
 
