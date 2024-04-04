@@ -142,4 +142,23 @@ Here, we have introduced the angular velocities $\omega_1$ and $\omega_2$ define
 \end{align}
 ```
 
-The kinetic energy $T$ of the first and second masses are given by:
+The kinetic energy $T$ of the first mass is:
+
+```math
+\begin{align}
+    T_1 &= \frac{1}{2}\,m_1 \, \left( \dot{x}_1^2 + \dot{y}_1^2 \right) \\
+        &= \frac{1}{2}\,m_1 \, r_1^2 \, \omega_1^2 \, (\cos^2\theta_1 + \sin^2\theta_1) \\
+        &= \frac{1}{2}\,m_1 \, r_1^2 \, \omega_1^2
+\end{align}
+```
+
+while that of the second one reads
+
+```math
+\begin{align}
+    T_2 &= \frac{1}{2} \, m_2 \, \left(\dot{x}_2_^2 + \dot{y}_2^2) \\
+        &= \frac{1}{2} \, m_2 \, \left[ \left( r_1\, \omega_1 \, c_1 + r_2 \, \omega_2 \, c_2 \right)^2 + \left( r_1 \, omega_1 \, s_1 + r_2 \, \omega_2 \, s_2 \right)^2 \right] \\
+        &= \frac{1}{2} \, m_2 \, \left( r_1^2\omega_1^2c_1^2 + r_2^2\omega_2^2c_2^2 + 2\r_1\r_2\omega_1\omega_2c_1c_2
+                                     +  r_1^2\omega_1^2s_1^2 + r_2^2\omega_2^2s_2^2 + 2\r_1\r_2\omega_1\omega_2s_1s_2\right)
+\end{align}
+```
