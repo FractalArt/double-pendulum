@@ -290,16 +290,12 @@ After some simple manipulations, this leads to:
 ```math
 \boxed{
 \begin{align}
-    \dot{omega}_1 &= \frac{-m_2 \, r_2 \, \omega_2^2 \, \sin\theta_{12} - g \, m_{12} \, \sin\theta_1 - r_1 \, m_2 \, \omega_1^2 \frac{1}{2} \sin(2\theta_{12}) + g \, m_2 \, \cos\theta_{12} \, \sin\theta_2}{r_1 \, (m_{12} - m_2 \, \cos^2\theta_{12})}
+    \dot{\omega}_1 &= \frac{-m_2 \, r_2 \, \omega_2^2 \, \sin\theta_{12} - g \, m_{12} \, \sin\theta_1 - r_1 \, m_2 \, \omega_1^2 \frac{1}{2} \sin(2\,\theta_{12}) + g \, m_2 \, \cos\theta_{12} \, \sin\theta_2}{r_1 \, (m_{12} - m_2 \, \cos^2\theta_{12})}\\
+
+    \dot{\omega}_2 &= \frac{r_1 \, m_{12} \, \omega_1^2 \, \sin\theta_{12} - g \, m_{12} \, \sin\theta_2 + \frac{1}{2} \, m_2 \, r_2 \, \omega_2^2 \, \sin(2\,\theta_{12}) + g \, m_{12} \, \cos\theta_{12} \, \sin\theta_1}{r_2 \, (m_{12} - m_2 \, \cos^2\theta_{12})}
 \end{align}
 }
 ```
-
-After some 
-
-
-
-
 
 These differential equations do not seem to match those presented in [myphysicslab.com](https://www.myphysicslab.com/pendulum/double-pendulum-en.html), but
 we have checked numerically, that they produce the same results.
