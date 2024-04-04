@@ -235,7 +235,7 @@ For the second angle $\theta_2$, the Euler-Lagrange equation reads:
   0 &= \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \omega_2} - \frac{\partial L}{\partial \theta_2} \\
     &= \frac{\mathrm{d}}{\mathrm{d}t} 
     \left[
-        m_2 \, r_2^2 \, \omega_2 + m_2 \, r_1 \, r_2 \, \omega_2 \, \cos\theta_{12}
+        m_2 \, r_2^2 \, \omega_2 + m_2 \, r_1 \, r_2 \, \omega_1 \, \cos\theta_{12}
     \right] 
     - m_2 \, r_1 \, r_2 \, \omega_1 \, \omega_2 \, \sin\theta_{12} + m_2 \, g \, r_2 \, \sin\theta_2 \\
 
