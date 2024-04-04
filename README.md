@@ -159,6 +159,38 @@ while that of the second one reads
     T_2 &= \frac{1}{2} \, m_2 \, \left(\dot{x}_2^2 + \dot{y}_2^2\right) \\
         &= \frac{1}{2} \, m_2 \, \left[ \left( r_1\, \omega_1 \, c_1 + r_2 \, \omega_2 \, c_2 \right)^2 + \left( r_1 \, \omega_1 \, s_1 + r_2 \, \omega_2 \, s_2 \right)^2 \right] \\
         &= \frac{1}{2} \, m_2 \, \left(r_1^2\,\omega_1^2\,c_1^2 + r_2^2\,\omega_2^2\,c_2^2 + 2 \,r_1 \,r_2 \,\omega_1 \,\omega_2 \,c_1\,c_2
-                                     + r_1^2\,\omega_1^2\,s_1^2 + r_2^2\,\omega_2^2\,s_2^2 + 2 \,r_1 r\,_2 \,\omega_1 \,\omega_2 \,s_1\,s_2 \right)
+                                     + r_1^2\,\omega_1^2\,s_1^2 + r_2^2\,\omega_2^2\,s_2^2 + 2 \,r_1 r\,_2 \,\omega_1 \,\omega_2 \,s_1\,s_2 \right) \\
+        &= \frac{1}{2} \, m_2 \, \left(r_1^2\,\omega_1^2 + r_2^2\,\omega_2^2 + 2\, r_1 \, r_2 \, \omega_1 \, \omega_2 \, \cos(\theta_1 - \theta_2) \right)
 \end{align}
+```
+
+Here we have used the abbreviations $c_i = \cos\theta_i$ and $s_i = \sin\theta_i$ to shorten the expressions and made use of the identity
+
+```math
+    \cos(\alpha - \beta) = \cos \alpha \, \cos \beta + \sin \alpha \, \sin \beta
+```
+
+In both cases, the contribution to the potential energy $V$ is only given by the gravitational potential and reads
+
+```math
+V_1 &= m_1 \, g \, y_1 &= - m_1 \, g \, r_1 \, \cos\theta_1 \\
+V_2 &= m_2 \, g \, y_2 &= - m_2 \, g \, r_1 \, \cos\theta_1 - m_2 \, g \, r_2 \, \cos\theta_2
+```
+
+To derive the differential equations governing the dynamics of the two angles we will use the *Euler-Lagrange* equations:
+
+```math
+    \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \dot{\theta}_i} - \frac{\partial L}{\partial \theta_i} 
+  = \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \omega_i} - \frac{\partial L}{\partial \theta_i} = 0
+```
+
+with
+
+```math
+    L &= T - V \\
+      &= (T_1 + T_2) - (V_1 + V_2) \\
+      &= \frac{1}{2} \, (m_1 + m_2) \, r_1^2 \, \omega_1^2
+       + \frac{1}{2} \, m_2 \, r_2^2 \, \omega_2^2
+       + m_2 \, r_1 \, r_2 \, \omega_1 \, \omega_2 \, \cos(\theta_1 - \theta_2)
+       + (m_1 + m_2) \, g \, r_1 \, \cos\theta_1 + m_2 \, g \, r_2 \, \cos\theta_2
 ```
