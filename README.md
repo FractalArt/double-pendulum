@@ -254,10 +254,11 @@ We thus remain with two differential equations describing the dynamics of the do
 ```math
 \boxed{
 \begin{align}
-    0 &= m_{12} \, r_1^2 \, \dot{\omega}_1 + m_2 \, r_1 \, r_2 \, \dot{\omega}_2 \, \cos\theta_{12} + m_2\,r_1\,r_2\,\omega_2^2\sin\theta_{12}
-       + m_{12} \, g \, r_1 \, \sin\theta_1 \tag{1}\label{eq:1} \\
-    0 &= \,m_2 \, r_2^2 \, \dot{\omega_2} + m_2 \, r_1 \, r_2 \, \dot{\omega}_1 \, \cos\theta_{12} - m_2 \, r_1 \, r_2 \, \omega_1^2 \, \sin\theta_{12}
-        + m_2 \, g \, r_2 \, \sin\theta_2 \tag{2}\label{eq:2}
+    0 &= \dot{\omega}_1 + \frac{m_2}{m_{12}} \, \frac{r_2}{r_1} \, \dot{\omega}_2 \, \cos\theta_{12} + \frac{m_2}{m_{12}} \, \frac{r_2}{r_1}\,\omega_2^2\sin\theta_{12}
+       + \frac{g}{r_1} \, \sin\theta_1 \tag{1}\label{eq:1} \\
+
+    0 &= \dot{\omega_2} + \frac{r_1}{r_2} \, \dot{\omega}_1 \, \cos\theta_{12} - \frac{r_1}{r_2} \, \omega_1^2 \, \sin\theta_{12}
+        + \frac{g}{r_2} \, \sin\theta_2 \tag{2}\label{eq:2}
 \end{align}
 }
 ```
