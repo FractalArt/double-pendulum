@@ -6,8 +6,7 @@ This repository contains the Python code for a double-pendulum simulation.
 
 ## Implementation
 
-The second-order differential equations for the two angles are taken from [myphysicslab.com](https://www.myphysicslab.com/pendulum/double-pendulum-en.html).
-They are solved using fourth-order Runge-Kutta.
+The second-order differential equations for the two angles are derived below in the [Analytics]{#analytics} section. They are solved using fourth-order Runge-Kutta.
 
 ## Usage
 
@@ -97,7 +96,7 @@ python3 double_pendulum.py -d -p 5000 -s 20000 -m 100 --delta-t2 0.0001 -s 50000
 
 ---
 
-## Analytics
+## Analytics {#analytics}
 
 We consider the system of a double pendulum. It consists of a first mass $m_1$ attached to a rigid rod
 of length $r_1$. Attached to the first mass is a second pendulum with a rigid rod of length $r_2$ and
@@ -264,3 +263,12 @@ We thus remain with two differential equations describing the dynamics of the do
 ```
 
 This is a system of coupled, second-order non-linear differential equations.
+
+
+
+
+
+
+These differential equations do not seem to match those presented in [myphysicslab.com](https://www.myphysicslab.com/pendulum/double-pendulum-en.html), but
+we have checked numerically, that they produce the same results.
+
