@@ -113,8 +113,11 @@ expressed as:
 
 ```math
 \begin{align}
-    x_1 &= r_1\,\sin\,\theta_1 \\
-    y_1 &= -r_1\,\cos\,\theta_1
+    x_1 &= r_1\,\sin\theta_1 \\
+    y_1 &= -r_1\,\cos\theta_1 \\
+    & \\
+    x_2 &= r_1\,\sin\theta_1 + r_2\,\sin\theta_2 \\
+    y_2 &= -r_1\,\cos\theta_1 - r_2\,\cos\theta_2
 \end{align}
 
 ```
