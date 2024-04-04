@@ -157,6 +157,6 @@ while that of the second one reads
 ```math
 \begin{align}
     T_2 &= \frac{1}{2} \, m_2 \, \left(\dot{x}_2^2 + \dot{y}_2^2\right) \\
-        &= \frac{1}{2} \, m_2 \, \left( \left( r_1\, \omega_1 \, c_1 + r_2 \, \omega_2 \, c_ \right)^2 + \left( r_1 \, omega_1 \, s_1 + r_2 \, \omega_2 \, s_2 \right)^2 \right) \\
+        &= \frac{1}{2} \, m_2 \, \left[ \left( r_1\, \omega_1 \, c_1 + r_2 \, \omega_2 \, c_2 \right)^2 + \left( r_1 \, omega_1 \, s_1 + r_2 \, \omega_2 \, s_2 \right)^2 \right] \\
 \end{align}
 ```
