@@ -268,17 +268,19 @@ This is a system of __coupled__, __second-order__ __non-linear__ differential eq
 The final step is transform this system of two second-order differential equations into a system of four first-order equations of the form:
 
 ```math
+\begin{align}
 \dot{\theta}_1 &= \omega_1 \\
 \dot{\theta}_2 &= \omega_2 \\
 \dot{\omega}_1 &= f_1(\theta_1, \theta_2, \omega_1, \omega_2)
 \dot{\omega}_2 &= f_2(\theta_1, \theta_2, \omega_1, \omega_2)
+\end{align}
 ```
 
 To do that, we combine equations $\ref{eq:1}$ and $\ref{eq:2}$ as follows:
 
 ```math
 \begin{align}
-0 &= (1) - \frac{m2}{m_{12}} \, \frac{r_2}{r_1} \, \cos\theta_{12} \, (2) 
+0 &= (1) - \frac{m2}{m_{12}} \, \frac{r_2}{r_1} \, \cos\theta_{12} \, (2)  \\
 0 &= (2) - \frac{r_1}{r_2} \, \cos\theta_{12} \, (1)
 \end{align}
 ```
