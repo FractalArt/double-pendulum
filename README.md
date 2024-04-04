@@ -182,8 +182,7 @@ In both cases, the contribution to the potential energy $V$ is only given by the
 To derive the differential equations governing the dynamics of the two angles we will use the *Euler-Lagrange* equations:
 
 ```math
-    \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \dot{\theta}_i} - \frac{\partial L}{\partial \theta_i} 
-  = \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \omega_i} - \frac{\partial L}{\partial \theta_i} = 0
+  \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \omega_i} - \frac{\partial L}{\partial \theta_i} = 0
 ```
 
 with
@@ -195,6 +194,6 @@ with
       &= \frac{1}{2} \, (m_1 + m_2) \, r_1^2 \, \omega_1^2
        + \frac{1}{2} \, m_2 \, r_2^2 \, \omega_2^2
        + m_2 \, r_1 \, r_2 \, \omega_1 \, \omega_2 \, \cos(\theta_1 - \theta_2) \\
-       \qquad + (m_1 + m_2) \, g \, r_1 \, \cos\theta_1 + m_2 \, g \, r_2 \, \cos\theta_2
+      & \qquad + (m_1 + m_2) \, g \, r_1 \, \cos\theta_1 + m_2 \, g \, r_2 \, \cos\theta_2
 \end{align}
 ```
